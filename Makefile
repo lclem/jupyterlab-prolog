@@ -7,3 +7,4 @@ build: install
   
  jupyter-install: install
   jupyter labextension install
+  jupyter lab build
