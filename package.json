@@ -1,6 +1,6 @@
 {
-  "name": "@jupyterlab/prolog",
-  "version": "0.1",
+  "name": "jupyterlab-prolog",
+  "version": "1.0.0-pre.1",
   "private": false,
   "description": "An experimental Prolog extension for JupyterLab",
   "keywords": [
@@ -14,7 +14,7 @@
     "url": "https://github.com/lclem/jupyterlab-prolog/issues"
   },
   "license": "BSD-3-Clause",
-  "author": "Lorenzo Clemente",
+  "author": "Lorenzo Clemente <clementelorenzo@gmail.com>",
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
     "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
@@ -23,7 +23,7 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lclem/jupyterlab-prolog.git"
+    "url": "git+https://github.com/lclem/jupyterlab-prolog.git"
   },
   "scripts": {
     "build": "tsc",
@@ -93,5 +93,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }

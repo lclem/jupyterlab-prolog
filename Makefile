@@ -17,3 +17,12 @@ watch: install
 
 run: watch
 	jupyter lab --watch
+
+login:
+	npm login
+
+pack:
+	npm pack
+
+publish:
+	npm publish
