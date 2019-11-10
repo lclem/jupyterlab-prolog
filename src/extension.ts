@@ -1,3 +1,5 @@
+import { PROLOG_MIME_TYPE, PROLOG_EXTENSION, PROLOG_NAME } from "./common";
+
 import {
   ILabShell,
   ILayoutRestorer,
@@ -60,6 +62,15 @@ function activateProlog(
   notebookTracker: INotebookTracker,
   rendermime: IRenderMimeRegistry
 ): IPrologRegistry {
+  // add the prolog file type
+  app.docRegistry.addFileType({
+    name: PROLOG_NAME,
+    displayName: "Prolog File",
+    extensions: [PROLOG_EXTENSION],
+    mimeTypes: [PROLOG_MIME_TYPE]
+    //iconClass: "jp-MaterialIcon prolog_icon"
+  });
+
   // const prolog = new Prolog({ docmanager, rendermime });
   const registry = new PrologRegistry();
 
@@ -127,6 +138,7 @@ function activateProlog(
 
   */
 
+  console.log("JupyterLab extension jupyter-prolog is activated!");
   return registry;
 }
 

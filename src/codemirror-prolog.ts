@@ -12,19 +12,38 @@ import "codemirror/mode/julia/julia";
 import "codemirror/mode/markdown/markdown";
 import "codemirror/mode/meta";
 
+import {
+  PROLOG_MIME_TYPE,
+  PROLOG_MODE,
+  PROLOG_EXTENSION,
+  PROLOG_NAME
+} from "./common";
+
 var hintWords = [""];
+
+console.log(`Registering hints for prolog mode.`);
 
 try {
   CodeMirror.registerHelper("hintWords", "prolog", hintWords);
 } catch (error) {
-  console.log(`Failed to register hintWords for sos mode. ${error}`);
+  console.log(`Failed to register hintWords for prolog mode. ${error}`);
 }
 
-(CodeMirror as any).defineMIME("text/x-prolog", "prolog");
+console.log(`Defining CodeMirror prolog mode.`);
+
+(CodeMirror as any).defineMode(
+  "prolog",
+  function(conf: CodeMirror.EditorConfiguration, parserConf: any) {},
+  "python"
+);
+
+console.log(`Registering CodeMirror prolog MIME mode.`);
+
+(CodeMirror as any).defineMIME(PROLOG_MIME_TYPE, PROLOG_MODE);
 
 (CodeMirror as any).modeInfo.push({
-  ext: ["pl"],
-  mime: "text/x-prolog",
-  mode: "prolog",
-  name: "Prolog"
+  ext: [PROLOG_EXTENSION],
+  mime: PROLOG_MIME_TYPE,
+  mode: PROLOG_MODE,
+  name: PROLOG_NAME
 });

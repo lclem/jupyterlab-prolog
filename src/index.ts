@@ -1,4 +1,5 @@
 // export * from './prolog';
+export * from "./extension";
 export * from "./registry";
-// import * as CodeMirror from "codemirror";
-import "./codemirror-prolog";
+export * from "./common";
+// export * from './codemirror-prolog';

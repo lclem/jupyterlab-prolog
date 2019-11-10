@@ -1,10 +1,10 @@
 install: build
 	#npm install
-	jlpm install .
+	jlpm install
   
 build: src/*.ts
 	#npm run build
-	jlpm run build .
+	jlpm run build
   
  jupyter-install: install
 	jupyter labextension install .
