@@ -66,6 +66,21 @@ Skip to content
   "jupyterlab": {
     "extension": true
   },
+  "discovery": {
+    "kernel": [
+      {
+        "kernel_spec": {
+          "language": "^prolog",
+        },
+        "base": {
+          "name": "prolog-kerel"
+        },
+        "managers": [
+            "pip"
+        ]
+      }
+    ]
+  }
   "lint-staged": {
     "**/*{.ts,.tsx,.css,.json,.md}": [
       "prettier --write",
