@@ -12,7 +12,7 @@ import "codemirror/mode/julia/julia";
 import "codemirror/mode/markdown/markdown";
 import "codemirror/mode/meta";
 
-var hintWords = [];
+var hintWords = [""];
 
 try {
   CodeMirror.registerHelper("hintWords", "prolog", hintWords);
@@ -26,5 +26,5 @@ try {
   ext: ["pl"],
   mime: "text/x-prolog",
   mode: "prolog",
-  name: "prolog"
+  name: "Prolog"
 });

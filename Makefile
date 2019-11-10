@@ -1,22 +1,20 @@
-
-install :
+install: build
 	#npm install
-	jlpm install
+	jlpm install .
   
-build: install
+build: src/*.ts
 	#npm run build
-	jlpm run build
+	jlpm run build .
   
  jupyter-install: install
-	#jupyter labextension install
 	jupyter labextension install .
 	jupyter lab build
 
-watch: install
+watch: jupyter-install
 	jlpm run watch
 
-run: watch
-	jupyter lab --watch
+run: jupyter-install
+	jupyter lab --watch --no-browser
 
 login:
 	npm login

@@ -5,3 +5,5 @@ node_modules/*
 *.lock
 lib/*
 *.tgz
+examples/.ipynb_checkpoints 
+*.pl
