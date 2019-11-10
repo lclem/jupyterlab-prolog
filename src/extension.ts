@@ -3,17 +3,17 @@ import {
   ILayoutRestorer,
   JupyterFrontEnd,
   JupyterFrontEndPlugin
-} from '@jupyterlab/application';
+} from "@jupyterlab/application";
 
-import { IDocumentManager } from '@jupyterlab/docmanager';
+import { IDocumentManager } from "@jupyterlab/docmanager";
 
-import { IEditorTracker } from '@jupyterlab/fileeditor';
+import { IEditorTracker } from "@jupyterlab/fileeditor";
 
-import { IMarkdownViewerTracker } from '@jupyterlab/markdownviewer';
+import { IMarkdownViewerTracker } from "@jupyterlab/markdownviewer";
 
-import { INotebookTracker } from '@jupyterlab/notebook';
+import { INotebookTracker } from "@jupyterlab/notebook";
 
-import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
+import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
 
 /* import { TableOfContents } from './toc';
 
@@ -24,7 +24,7 @@ import {
   createRenderedMarkdownGenerator
 } from './generators'; */
 
-// import { ITableOfContentsRegistry, TableOfContentsRegistry } from './registry';
+import { IPrologRegistry, PrologRegistry } from "./registry";
 
 // import '../style/index.css';
 
@@ -32,12 +32,12 @@ import {
  * Initialization data for the jupyterlab-prolog extension.
  */
 const extension: JupyterFrontEndPlugin<IPrologRegistry> = {
-  id: 'jupyterlab-prolog',
+  id: "jupyterlab-prolog",
   autoStart: true,
   provides: IPrologRegistry,
   requires: [
     IDocumentManager,
-    IEditorTracker,
+    IEditorTracker
     //ILabShell,
     //ILayoutRestorer,
     //IMarkdownViewerTracker,
@@ -59,15 +59,16 @@ function activateProlog(
   markdownViewerTracker: IMarkdownViewerTracker,
   notebookTracker: INotebookTracker,
   rendermime: IRenderMimeRegistry
-): ITableOfContentsRegistry {
+): IPrologRegistry {
+  // const prolog = new Prolog({ docmanager, rendermime });
+  const registry = new PrologRegistry();
 
   // Do nothing for now
   /*
   // Create the ToC widget.
-  const toc = new TableOfContents({ docmanager, rendermime });
 
   // Create the ToC registry.
-  const registry = new TableOfContentsRegistry();
+  
 
   // Add the ToC to the left area.
   toc.title.iconClass = 'jp-TableOfContents-icon jp-SideBar-tabIcon';
@@ -124,8 +125,9 @@ function activateProlog(
     toc.current = { widget, generator };
   });
 
-  return registry;
-  
   */
+
+  return registry;
 }
+
 export default extension;

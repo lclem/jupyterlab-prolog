@@ -1,10 +1,8 @@
-import { IInstanceTracker } from '@jupyterlab/apputils';
+//import { IInstanceTracker } from '@jupyterlab/apputils';
 
-#import { Token } from '@phosphor/coreutils';
+import { Token } from "@phosphor/coreutils";
 
-#import { Widget } from '@phosphor/widgets';
-
-#import { IHeading } from './toc';
+import { Widget } from "@phosphor/widgets";
 
 /**
  * An interface for a PrologRegistry.
@@ -16,7 +14,7 @@ export interface IPrologRegistry extends PrologRegistry {}
  * The PrologRegistry token.
  */
 export const IPrologRegistry = new Token<PrologRegistry>(
-  'jupyterlab-prolog:IPrologRegistry'
+  "jupyterlab-prolog:IPrologRegistry"
 );
 /* tslint:enable */
 
@@ -32,7 +30,7 @@ export class PrologRegistry {
     widget: Widget
   ): PrologRegistry.IGenerator | undefined {
     let generator: PrologRegistry.IGenerator | undefined;
-    this._generators.forEach(gen => {
+    /* this._generators.forEach(gen => {
       if (gen.tracker.has(widget)) {
         // If isEnabled is present, check for it.
         if (gen.isEnabled && !gen.isEnabled(widget)) {
@@ -40,7 +38,7 @@ export class PrologRegistry {
         }
         generator = gen;
       }
-    });
+    }); */
     return generator;
   }
 
@@ -69,7 +67,7 @@ export namespace PrologRegistry {
     /**
      * An instance tracker for the widget.
      */
-    tracker: IInstanceTracker<W>;
+    //tracker: IInstanceTracker<W>;
 
     /**
      * A function to test whether to generate a ToC for a widget.
@@ -101,7 +99,7 @@ export namespace PrologRegistry {
      *
      * If not given, the default renderer will be used, which renders the text
      */
-    itemRenderer?: (item: IHeading) => JSX.Element | null;
+    //itemRenderer?: (item: IHeading) => JSX.Element | null;
 
     /**
      * A function that generates a toolbar for the generator
@@ -114,6 +112,6 @@ export namespace PrologRegistry {
      * A function that takes the widget, and produces
      * a list of headings.
      */
-    generate(widget: W): IHeading[];
+    //generate(widget: W): IHeading[];
   }
 }
