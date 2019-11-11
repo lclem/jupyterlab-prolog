@@ -7,3 +7,4 @@ lib/*
 *.tgz
 examples/.ipynb_checkpoints 
 *.pl
+examples/Snippets.ipynb
