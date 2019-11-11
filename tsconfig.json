@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
+    "allowJs": true,
+    // "declaration": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "skipLibCheck": true,

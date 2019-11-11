@@ -30,6 +30,8 @@ import { IPrologRegistry, PrologRegistry } from "./registry";
 
 // import '../style/index.css';
 
+import "./codemirror-prolog";
+
 /**
  * Initialization data for the jupyterlab-prolog extension.
  */
