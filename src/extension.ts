@@ -8,14 +8,15 @@ import {
 } from "@jupyterlab/application";
 
 import { IDocumentManager } from "@jupyterlab/docmanager";
-
 import { IEditorTracker } from "@jupyterlab/fileeditor";
-
 import { IMarkdownViewerTracker } from "@jupyterlab/markdownviewer";
-
 import { INotebookTracker } from "@jupyterlab/notebook";
-
 import { IRenderMimeRegistry } from "@jupyterlab/rendermime";
+import { ICommandPalette } from "@jupyterlab/apputils";
+import { ILauncher } from "@jupyterlab/launcher";
+import { IMainMenu } from "@jupyterlab/mainmenu";
+
+//import { Cell, CodeCell, CodeCellModel, MarkdownCell } from '@jupyterlab/cells';
 
 /* import { TableOfContents } from './toc';
 
@@ -41,12 +42,16 @@ const extension: JupyterFrontEndPlugin<IPrologRegistry> = {
   provides: IPrologRegistry,
   requires: [
     IDocumentManager,
-    IEditorTracker
-    //ILabShell,
-    //ILayoutRestorer,
-    //IMarkdownViewerTracker,
-    //INotebookTracker,
-    //IRenderMimeRegistry
+    IEditorTracker,
+    ILabShell,
+    ILayoutRestorer,
+    IMarkdownViewerTracker,
+    INotebookTracker,
+    IRenderMimeRegistry,
+    ICommandPalette,
+    ILauncher,
+    IMainMenu
+    //    Cell
   ],
   activate: activateProlog
 };
@@ -62,7 +67,11 @@ function activateProlog(
   restorer: ILayoutRestorer,
   markdownViewerTracker: IMarkdownViewerTracker,
   notebookTracker: INotebookTracker,
-  rendermime: IRenderMimeRegistry
+  rendermime: IRenderMimeRegistry,
+  palette: ICommandPalette,
+  launcher: ILauncher,
+  mainMenu: IMainMenu
+  //  cell: Cell
 ): IPrologRegistry {
   // add the prolog file type
   app.docRegistry.addFileType({
@@ -75,6 +84,15 @@ function activateProlog(
 
   // const prolog = new Prolog({ docmanager, rendermime });
   const registry = new PrologRegistry();
+
+  //for (let i = 0; i < panel.content.widgets.length; i++) {
+  //  let cell: Cell = panel.content.widgets[i];
+  //  let model = cell.model;
+
+  //  let collapsed = model.metadata.get('toc-hr-collapsed') as boolean;
+  //  collapsed = collapsed || false;
+
+  //  if (model.type === 'code') {
 
   // Do nothing for now
   /*
